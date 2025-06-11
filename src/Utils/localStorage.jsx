@@ -1,9 +1,11 @@
-const employees=[
-{
+localStorage.clear()
+const employees = [
+  {
     id: 1,
-    email: "employee1@example.com",
+    name: "Vansh",
+    email: "e@e.com",
     password: "123",
-    tasks:  [
+    tasks: [
       {
         active: true,
         newTask: true,
@@ -34,10 +36,17 @@ const employees=[
         date: "2025-06-08",
         category: "Communication"
       }
-    ]
+    ],
+    taskStats: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    }
   },
   {
     id: 2,
+    name: "Sarthak",
     email: "employee2@example.com",
     password: "123",
     tasks: [
@@ -81,10 +90,17 @@ const employees=[
         date: "2025-06-06",
         category: "Development"
       }
-    ]
+    ],
+    taskStats: {
+      active: 2,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    }
   },
   {
     id: 3,
+    name: "Nehal",
     email: "employee3@example.com",
     password: "123",
     tasks: [
@@ -138,10 +154,17 @@ const employees=[
         date: "2025-06-13",
         category: "Feedback"
       }
-    ]
+    ],
+    taskStats: {
+      active: 2,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    }
   },
   {
     id: 4,
+    name: "Soyal",
     email: "employee4@example.com",
     password: "123",
     tasks: [
@@ -175,10 +198,17 @@ const employees=[
         date: "2025-06-04",
         category: "Security"
       }
-    ]
+    ],
+    taskStats: {
+      active: 1,
+      newTask: 1,
+      completed: 2,
+      failed: 0
+    }
   },
   {
     id: 5,
+    name: "Tanmay",
     email: "employee5@example.com",
     password: "123",
     tasks: [
@@ -222,13 +252,21 @@ const employees=[
         date: "2025-06-12",
         category: "Presentation"
       }
-    ]
+    ],
+    taskStats: {
+      active: 1,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    }
   }
-]
+];
+
 
 const Admin = [
   {
     id: 1,
+    name: "Kunal",
     email: "admin@example.com",
     password: "123"
   }
@@ -242,4 +280,6 @@ export const setLocaStorage=()=>{
 export const getLocaStorage=()=>{
     const employees=JSON.parse(localStorage.getItem('employees'))
     const Admin=JSON.parse(localStorage.getItem('Admin'))
-}
+    
+    return {employees,Admin}
+  }
