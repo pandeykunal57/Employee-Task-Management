@@ -1,4 +1,5 @@
-localStorage.clear()
+localStorage.clear();
+
 const employees = [
   {
     id: 1,
@@ -7,7 +8,7 @@ const employees = [
     password: "123",
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -38,7 +39,7 @@ const employees = [
       }
     ],
     taskStats: {
-      active: 1,
+      active: 0,
       newTask: 1,
       completed: 1,
       failed: 1
@@ -51,7 +52,7 @@ const employees = [
     password: "123",
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -92,7 +93,7 @@ const employees = [
       }
     ],
     taskStats: {
-      active: 2,
+      active: 1,
       newTask: 1,
       completed: 1,
       failed: 1
@@ -105,7 +106,7 @@ const employees = [
     password: "123",
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -156,7 +157,7 @@ const employees = [
       }
     ],
     taskStats: {
-      active: 2,
+      active: 1,
       newTask: 2,
       completed: 1,
       failed: 1
@@ -169,7 +170,7 @@ const employees = [
     password: "123",
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -200,7 +201,7 @@ const employees = [
       }
     ],
     taskStats: {
-      active: 1,
+      active: 0,
       newTask: 1,
       completed: 2,
       failed: 0
@@ -213,7 +214,7 @@ const employees = [
     password: "123",
     tasks: [
       {
-        active: true,
+        active: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -254,14 +255,13 @@ const employees = [
       }
     ],
     taskStats: {
-      active: 1,
+      active: 0,
       newTask: 2,
       completed: 1,
       failed: 1
     }
   }
 ];
-
 
 const Admin = [
   {
@@ -272,14 +272,13 @@ const Admin = [
   }
 ];
 
-export const setLocaStorage=()=>{
-    localStorage.setItem('employees',JSON.stringify(employees))
-    localStorage.setItem('Admin',JSON.stringify(Admin))
-}
+export const setLocaStorage = () => {
+  localStorage.setItem('employees', JSON.stringify(employees));
+  localStorage.setItem('Admin', JSON.stringify(Admin));
+};
 
-export const getLocaStorage=()=>{
-    const employees=JSON.parse(localStorage.getItem('employees'))
-    const Admin=JSON.parse(localStorage.getItem('Admin'))
-    
-    return {employees,Admin}
-  }
+export const getLocaStorage = () => {
+  const employees = JSON.parse(localStorage.getItem('employees'));
+  const Admin = JSON.parse(localStorage.getItem('Admin'));
+  return { employees, Admin };
+};

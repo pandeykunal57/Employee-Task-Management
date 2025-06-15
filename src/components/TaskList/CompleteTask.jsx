@@ -1,14 +1,14 @@
 import React from 'react'
 
-const CompleteTask = () => {
+const CompleteTask = ({data}) => {
   return (
     <div className='flex-shrink-0 h-full w-[300px] bg-cyan-400 rounded-xl p-5'>
         <div className='flex justify-between  items-center'>
-            <h3 className='bg-green-600 px-3 text-xs py-1 rounded-md font-bold'>low</h3>
-            <h4 className='font-bold text-sm'>9 June 2025</h4>
+            <h3 className='bg-green-600 px-3 text-xs py-1 rounded-md font-bold'>{data.category}</h3>
+            <h4 className='font-bold text-sm'>{data.date}</h4>
         </div>
-        <h2 className='text-3xl mt-4 font-semibold'>TASK 1</h2>
-        <p className='mt-2 '>kjasdgcfku ajsckua kjasdcfk kjadsc ladjc dgu kadjfbakdfgk</p>
+        <h2 className='text-3xl mt-4 font-semibold'>{data.title}</h2>
+        <p className='mt-2 '>{data.description}</p>
         <div className='mt-10 '>
             <button className='bg-green-500 px-3 py-2 rounded text-xs font-medium'>COMPLETED</button>
         </div>
