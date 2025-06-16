@@ -14,7 +14,7 @@ const Login = ({ handleLogin }) => {
 
     }
     return (
-        <div className='flex items-center justify-center h-screen w-screen'>
+        <div className='flex items-center justify-center h-screen w-screen text-white placeholder:text-gray-400'>
             <div className='border-2 border-emerald-600 p-20 rounded-xl' >
                 <form onSubmit={(e) => {
                     SubmitHandler(e)

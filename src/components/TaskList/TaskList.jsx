@@ -6,7 +6,7 @@ import NewTask from './NewTask'
 
 const TaskList = ({ data }) => {
     return (
-        <div id='tasklist' className='h-[55%] overflow-x-auto w-full flex flex-nowrap items-center justify-start gap-5 py-5 mt-10'>
+        <div id='tasklist' className='h-[55%] overflow-x-auto w-full flex flex-nowrap items-center justify-start gap-5 py-5 mt-10 '>
             {data?.tasks?.map((elem, idx) => {
                 console.log("Task", idx, elem); // Debug
 
