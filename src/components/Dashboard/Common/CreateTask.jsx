@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../../context/AuthProvider'
 
 
 const CreateTask = () => {
@@ -12,11 +13,22 @@ const CreateTask = () => {
 
 	const [newTask, setNewTask] = useState({})
 
+     const [userData,setUserData] = useContext (AuthContext)
 
 	const submitHandler = (e) => {
 
 		setNewTask({ taskTitle, taskDescription, taskDate, category, active: false, newTask: true, failed: false, completed: false })
 		
+		const data = userData
+		
+		data.forEach(function (elem) {
+            if (asignTo == elem.firstName) {
+                elem.tasks.push(newTask)
+                elem.taskCounts.newTask = elem.taskCounts.newTask + 1
+            }
+        })
+		setUserData(data)
+
 		e.preventDefault()
 		setTaskTitle('')
         setCategory('')
