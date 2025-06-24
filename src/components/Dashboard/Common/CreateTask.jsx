@@ -5,9 +5,9 @@ import { AuthContext } from '../../../context/AuthProvider'
 const CreateTask = () => {
 
 
-	const [taskTitle, setTaskTitle] = useState('')
-	const [taskDescription, setTaskDescription] = useState('')
-	const [taskDate, setTaskDate] = useState('')
+	const [title, setTaskTitle] = useState('')
+	const [description, setTaskDescription] = useState('')
+	const [date, setTaskDate] = useState('')
 	const [asignTo, setAsignTo] = useState('')
 	const [category, setCategory] = useState('')
 
@@ -15,28 +15,29 @@ const CreateTask = () => {
 
      const [userData,setUserData] = useContext (AuthContext)
 
-	const submitHandler = (e) => {
+	 const submitHandler = (e) => {
+        e.preventDefault()
 
-		setNewTask({ taskTitle, taskDescription, taskDate, category, active: false, newTask: true, failed: false, completed: false })
-		
-		const data = userData
-		
-		data.forEach(function (elem) {
-            if (asignTo == elem.firstName) {
+        setNewTask({ title, description, date, category, active: false, newTask: true, failed: false, completed: false })
+
+        const data = [...userData]
+
+        data.forEach(function (elem) {
+            if (asignTo == elem.name) {
                 elem.tasks.push(newTask)
-                elem.taskCounts.newTask = elem.taskCounts.newTask + 1
+                elem.taskStats.newTask = elem.taskStats.newTask + 1
             }
         })
-		setUserData(data)
+        setUserData(data)
+        console.log(data);
 
-		e.preventDefault()
-		setTaskTitle('')
+        setTaskTitle('')
         setCategory('')
         setAsignTo('')
         setTaskDate('')
         setTaskDescription('')
 
-	}
+    }
 	return (
 		<div className='p-5 bg-[#1c1c1c] mt-5 rounded text-white placeholder:text-gray-400'>
 			<form onSubmit={(e) => {
@@ -45,7 +46,7 @@ const CreateTask = () => {
 				<div className='w-1/2'>
 					<div>
 						<h3 className='text-md text-gray-300 mb-0.5'>Task Title</h3>
-						<input value={taskTitle}
+						<input value={title}
 							onChange={(e) => {
 								setTaskTitle(e.target.value)
 							}}
@@ -53,7 +54,7 @@ const CreateTask = () => {
 					</div>
 					<div>
 						<h3 className='text-md text-gray-300 mb-0.5'>Date</h3>
-						<input value={taskDate}
+						<input value={date}
 							onChange={(e) => {
 								setTaskDate(e.target.value)
 							}}
@@ -79,7 +80,7 @@ const CreateTask = () => {
 				<div className='w-1/2'>
 					<h3 className='text-md text-gray-300 mb-0.5'>Description</h3>
 					<textarea
-						value={taskDescription}
+						value={description}
 						onChange={(e) => {
 							setTaskDescription(e.target.value)
 						}}
