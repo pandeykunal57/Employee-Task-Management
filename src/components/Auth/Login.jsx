@@ -28,7 +28,14 @@ const Login = ({ handleLogin }) => {
                     <button className='mt-7 text-white border-none outline-none hover:bg-emerald-700 font-semibold bg-emerald-600 text-lg py-2 px-8 w-full rounded-full placeholder:text-white'>Log in</button>
                 </form>
             </div>
+
+            <div className='font-bold px-5'>
+                <p>ADMIN DASHBOARD <br /> EMAIL: a@a.com <br />PASS: 123</p>
+                
+            </div>
+            <div className='font-bold'><p>EMPLOYEE DASHBOARD <br /> EMAIL: e@e.com <br /> PASS: 123</p></div>
         </div>
+        
     )
 }
 
